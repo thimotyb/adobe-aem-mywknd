@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2021-05-19T22:11:07.022Z"
+        cq:lastModifiedBy="admin"
+        cq:tags="[]"
+        cq:template="/conf/wknd/settings/wcm/templates/xf-web-variation"
+        cq:xfMasterVariation="{Boolean}true"
+        cq:xfVariantType="web"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Footer"
+        sling:resourceType="wknd/components/xfpage">
+        <root
+            jcr:lastModified="{Date}2021-05-19T22:08:47.137Z"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wknd/components/container"
+            layout="responsiveGrid">
+            <separator
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wknd/components/separator"/>
+            <image
+                jcr:created="{Date}2021-05-19T22:09:06.009Z"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2021-05-19T22:09:21.395Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wknd/components/image"
+                fileReference="/content/dam/wknd/en/site/wknd-logo-light.svg">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="2"/>
+                </cq:responsive>
+            </image>
+            <navigation
+                jcr:created="{Date}2021-05-19T22:10:07.776Z"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2021-05-19T22:10:52.528Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wknd/components/navigation"
+                collectAllPages="false"
+                disableShadowing="false"
+                navigationRoot="/content/wknd/us/en"
+                structureDepth="1"
+                structureStart="1">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="8"/>
+                </cq:responsive>
+            </navigation>
+            <text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wknd/components/text"
+                text="&lt;p>Copyright 2021, WKND Sites Project.&amp;nbsp;All rights reserved.&lt;/p>&#xd;&#xa;&lt;p>345 Park Avenue,&amp;nbsp;San Jose, CA 95110-2704, USA&lt;/p>&#xd;&#xa;"
+                textIsRich="true"/>
+        </root>
+    </jcr:content>
+</jcr:root>
