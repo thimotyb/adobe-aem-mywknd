@@ -75,11 +75,66 @@ public class BylineImplTest {
         assertEquals(expected, actual);
     }
 
-    @Test 
-    void testIsEmpty() { 
+    @Test
+    public void testIsEmpty() {
         ctx.currentResource("/content/empty");
+    
         Byline byline = ctx.request().adaptTo(Byline.class);
-
+    
         assertTrue(byline.isEmpty());
     }
+    
+    @Test
+    public void testIsEmpty_WithoutName() {
+        ctx.currentResource("/content/without-name");
+    
+        Byline byline = ctx.request().adaptTo(Byline.class);
+    
+        assertTrue(byline.isEmpty());
+    }
+    
+    @Test
+    public void testIsEmpty_WithoutOccupations() {
+        ctx.currentResource("/content/without-occupations");
+    
+        Byline byline = ctx.request().adaptTo(Byline.class);
+    
+        assertTrue(byline.isEmpty());
+    }
+    
+    @Test
+    public void testIsEmpty_WithoutImage() {
+        ctx.currentResource("/content/byline");
+    
+        lenient().when(modelFactory.getModelFromWrappedRequest(eq(ctx.request()),
+            any(Resource.class),
+            eq(Image.class))).thenReturn(null);
+    
+        Byline byline = ctx.request().adaptTo(Byline.class);
+    
+        assertTrue(byline.isEmpty());
+    }
+    
+    @Test
+    public void testIsEmpty_WithoutImageSrc() {
+        ctx.currentResource("/content/byline");
+    
+        when(image.getSrc()).thenReturn("");
+    
+        Byline byline = ctx.request().adaptTo(Byline.class);
+    
+        assertTrue(byline.isEmpty());
+    }
+
+    @Test
+    public void testIsNotEmpty() {
+        ctx.currentResource("/content/byline");
+        when(image.getSrc()).thenReturn("/content/bio.png");
+
+        Byline byline = ctx.request().adaptTo(Byline.class);
+
+        assertFalse(byline.isEmpty());
+    }
+
+    
 }
